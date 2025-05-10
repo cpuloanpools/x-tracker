@@ -192,7 +192,7 @@ def image_url_to_base64(url):
 def ask_llava(prompt, image_url):
     image_b64 = image_url_to_base64(image_url)
     data = {
-        "model": "llava:13b",  # <- updated here
+        "model": "llava:7b",  # <- updated here
         "prompt": prompt,
         "images": [image_b64]
     }
@@ -215,11 +215,11 @@ def ask_llava(prompt, image_url):
 
 # Main CLI Flow
 def main():
-    print("🧠 Meme Token Generator (CLI - LLaVA 13B via Ollama)")
+    print("🧠 Meme Token Generator (CLI - LLaVA 7B via Ollama)")
     tweet = input("Paste the tweet text:\n> ").strip()
     image_url = input("Paste the image URL:\n> ").strip()
 
-    print("\n⏳ Generating with llava:13b...")
+    print("\n⏳ Generating with llava:7b...")
 
     try:
         full_prompt = f"{MEME_PROMPT}\nTweet: {tweet}"
