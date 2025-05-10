@@ -188,7 +188,7 @@ def image_url_to_base64(url):
     except Exception as e:
         raise Exception(f"Failed to download or process image: {e}")
 
-# Send to Ollama's LLaVA 13B model
+# Send to Ollama's LLaVA 7B model
 def ask_llava(prompt, image_url):
     image_b64 = image_url_to_base64(image_url)
     data = {
