@@ -188,16 +188,16 @@ def image_url_to_base64(url):
     except Exception as e:
         raise Exception(f"Failed to download or process image: {e}")
 
-# Send to Ollama's LLaVA 7B model
+# Send to Ollama's LLaVA 13B model
 def ask_llava(prompt, image_url):
     image_b64 = image_url_to_base64(image_url)
     data = {
-        "model": "llava:7b",  # <- updated here
+        "model": "llava:13b",  # <- updated here
         "prompt": prompt,
         "images": [image_b64]
     }
 
-    response = requests.post("http://localhost:11434/api/generate", json=data, stream=True)
+    response = requests.post("https://2x1hldutqtezdl-11434.proxy.runpod.net/api/generate", json=data, stream=True)
     output = ""
 
     for line in response.iter_lines():
@@ -215,11 +215,11 @@ def ask_llava(prompt, image_url):
 
 # Main CLI Flow
 def main():
-    print("🧠 Meme Token Generator (CLI - LLaVA 7B via Ollama)")
+    print("🧠 Meme Token Generator (CLI - LLaVA 13B via Ollama)")
     tweet = input("Paste the tweet text:\n> ").strip()
     image_url = input("Paste the image URL:\n> ").strip()
 
-    print("\n⏳ Generating with llava:7b...")
+    print("\n⏳ Generating with llava:13b...")
 
     try:
         full_prompt = f"{MEME_PROMPT}\nTweet: {tweet}"
