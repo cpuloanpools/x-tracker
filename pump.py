@@ -197,7 +197,7 @@ def ask_llava(prompt, image_url):
         "images": [image_b64]
     }
 
-    response = requests.post("https://2x1hldutqtezdl-11434.proxy.runpod.net/api/generate", json=data, stream=True)
+    response = requests.post("https://ivbvbwkve5ex27-11434.proxy.runpod.net/api/generate", json=data, stream=True)
     output = ""
 
     for line in response.iter_lines():
